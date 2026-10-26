@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Software Engineering Assessment</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">
+    <h1>Software Engineering Assessment</h1>
+    <p class="sub">Pick an answer and see instantly whether it is right.</p>
+  </div>
+  <div class="scorebox" aria-live="polite">
+    <div class="score"><span id="scoreNow">0</span><small> / <span id="scoreMax">0</span> pts</small></div>
+    <div class="bar"><div id="barFill"></div></div>
+    <div class="meta"><span id="doneCount">0</span> of <span id="totalCount">0</span> answered</div>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="side">
+    <label class="field">
+      <span>Topic</span>
+      <select id="secSel"></select>
+    </label>
+    <label class="field">
+      <span>Show</span>
+      <select id="statusSel">
+        <option value="all">All questions</option>
+        <option value="new">Not answered yet</option>
+        <option value="review">Needs review (wrong / partial)</option>
+      </select>
+    </label>
+
+    <div class="gridhead">Questions <span id="listCount"></span></div>
+    <div id="grid" class="grid"></div>
+
+    <div class="legend">
+      <span><i class="dot new"></i>New</span>
+      <span><i class="dot correct"></i>Correct</span>
+      <span><i class="dot partial"></i>Partial</span>
+      <span><i class="dot wrong"></i>Wrong</span>
+    </div>
+
+    <div class="side-actions">
+      <button id="resultsBtn" class="btn">View results</button>
+      <button id="resetBtn" class="btn ghost">Reset shown questions</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <section id="card" class="card" aria-live="polite"></section>
+    <nav class="nav">
+      <button id="prevBtn" class="btn ghost">← Previous</button>
+      <span id="posLabel" class="poslabel"></span>
+      <button id="nextBtn" class="btn primary">Next →</button>
+    </nav>
+    <p class="hint">Shortcuts: <kbd>a</kbd>–<kbd>g</kbd> choose an option · <kbd>←</kbd> <kbd>→</kbd> navigate · <kbd>R</kbd> reveal answer (multi-select)</p>
+  </main>
+</div>
+
+<dialog id="resultsDlg">
+  <div class="dlg">
+    <h2>Your results</h2>
+    <div id="resultsBody"></div>
+    <div class="dlg-actions">
+      <button id="reviewBtn" class="btn primary">Review missed questions</button>
+      <button id="closeDlg" class="btn ghost">Close</button>
+    </div>
+  </div>
+</dialog>
+
+<script src="questions.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
